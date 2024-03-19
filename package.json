@@ -1,0 +1,36 @@
+{
+  "name": "shancy-es",
+  "version": "1.0.1",
+  "description": "A helpful utility for Elastic Search",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/habib-shahzad/shancy-es.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/habib-shahzad/shancy-es/issues"
+  },
+  "homepage": "https://github.com/habib-shahzad/shancy-es#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "@types/uuid": "^9.0.8",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
+  }
+}
