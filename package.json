@@ -1,6 +1,6 @@
 {
   "name": "shancy-es",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A helpful utility for Elastic Search",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

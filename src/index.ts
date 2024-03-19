@@ -1,2 +1,2 @@
 export { spinnerOperation } from "./utils";
-export { bulkIndexInBatches, bulkIndexBatch } from "./es";
+export { bulkIndexInBatches, bulkIndexBatch, listAllIndexes } from "./es";

@@ -74,3 +74,23 @@ export async function bulkIndexInBatches({
     });
   }
 }
+
+export async function listAllIndexes(client: Client) {
+  const response = await client.indices.getAlias({
+    index: "*",
+  });
+  const indexList = Object.keys(response.body)
+    .map((index) => {
+      if (!index.startsWith(".")) {
+        return {
+          index,
+          aliases: Object.keys(response.body[index].aliases),
+        };
+      }
+    })
+    .filter((index) => index !== undefined) as {
+    index: string;
+    aliases: string[];
+  }[];
+  return indexList;
+}
