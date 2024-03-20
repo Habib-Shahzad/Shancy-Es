@@ -6,8 +6,9 @@ import { Client } from "@opensearch-project/opensearch";
 export async function bulkIndexBatch(
   client: Client,
   index: string,
-  batch: IndexDocument[]
+  _batch: IndexDocument[]
 ) {
+  const batch = _batch.filter((doc) => !!doc);
   const body = batch.flatMap((doc) => {
     const document = doc.data;
     const _id = document.id;
