@@ -18,13 +18,24 @@ Before using the ES Utilities, ensure you have the following dependencies instal
 import { Client } from "@opensearch-project/opensearch";
 const client = new Client({ node: "http://localhost:9200" });
 
+type IndexDocument = { data: Record<string, any> };
+type IndexFile = { doc: IndexDocument, filename: string };
+
 const props = {
-  client: client,/* OpenSearch client instance */,
+  client: client /* OpenSearch client instance */,
   index: "my-index",
   directoryPath: "./data",
   batchSize: 100,
-  processDoc: (data) => ({ data }),
-  processList: (data) => data.filter(/* filtering logic */),
+  processDoc: (file: IndexFile) => {
+    const data = file.doc.data;
+    return {
+      data: {
+        id: file.filename,
+        ...data,
+      },
+    };
+  },
+  processList: (data) => data.filter((doc) => true /* filtering logic */),
 };
 
 await bulkIndexInBatches(props);
