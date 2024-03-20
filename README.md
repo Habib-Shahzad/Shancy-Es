@@ -1,6 +1,6 @@
-# ES Utilities Documentation
+# Shancy-ES
 
-This documentation provides an overview and usage guide for the ES Utilities package designed to facilitate bulk indexing operations with Elasticsearch or OpenSearch.
+This package is designed to facilitate bulk indexing operations with Elasticsearch or OpenSearch with type-safety in typescript. (More Elastic search and related utilities are coming soon).
 
 ## Features
 
@@ -10,12 +10,18 @@ This documentation provides an overview and usage guide for the ES Utilities pac
 
 ## Installation
 
-Before using the ES Utilities, ensure you have the following dependencies installed:
+```bash
+npm i shancy-es
+```
+
+Before using the Shancy-ES, ensure you have the following dependencies installed:
 
 - `@opensearch-project/opensearch` for OpenSearch client.
 
 ```js
 import { Client } from "@opensearch-project/opensearch";
+import { bulkIndexInBatches } from "shancy-es";
+
 const client = new Client({ node: "http://localhost:9200" });
 
 type IndexDocument = { data: Record<string, any> };
@@ -44,6 +50,8 @@ await bulkIndexInBatches(props);
 ## Fancy Spinner
 
 ```js
+import { spinnerOperation } from "shancy-es";
+
 await spinnerOperation({
   loadingText: "Processing...",
   successText: "Processing complete.",
